@@ -5,8 +5,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.homestay.db.ExecResult;
 import com.homestay.entity.User;
 import com.homestay.entity.UserInfo;
-import com.homestay.repository.UserInfoRepository;
-import com.homestay.repository.UserRepository;
 import com.homestay.service.UserInfoService;
 import com.homestay.service.UserService;
 import org.apache.commons.io.IOUtils;
@@ -24,10 +22,6 @@ import java.util.Date;
  */
 @RestController
 public class UserController {
-    @Autowired
-    UserRepository userRepository;
-    @Autowired
-    UserInfoRepository userInfoRepository;
     @Autowired
     UserService userService;
     @Autowired

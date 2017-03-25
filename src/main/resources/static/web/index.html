@@ -2,9 +2,150 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/login.css" />
+    <script type="text/javascript" src="js/jquery-2.2.4.min.js" ></script>
     <title>登录</title>
+    <script type="text/javascript">
+        $(function(){
+            var len  = $("#number > li").length;
+            var index = 0;
+            var adTimer;
+            $("#number li").mouseover(function(){
+                if(!$('#show').is(':animated')){
+                    index = $("#number li").index(this);
+                    showImg(index);
+                }
+            }).eq(0).mouseover();
+            //滑入 停止动画，滑出开始动画.
+            $('#slider').hover(function(){
+                clearInterval(adTimer);
+            },function(){
+                adTimer = setInterval(function(){
+                    showImg(index);
+                    index++;
+                    if(index==len){index=0;}
+                } , 3000);
+            }).trigger("mouseleave");
+        })
+        // 通过控制top ，来显示不同的幻灯片
+        function showImg(index){
+            var sliderWidth = $("#slider").width();
+            $("#show").animate({left : -sliderWidth*index},400);
+            $("#number li").removeClass("on")
+                    .eq(index).addClass("on");
+        }
+        $(function(){
+            $("#send").click(function(){
+                $.ajax({
+                    url:"regCheck.do",
+                    type:"post",
+                    data:{
+                        nickname:$("#nickname").val(),
+                        account:$("#account").val(),
+                        password:$("#password").val(),
+                    },
+                    dataType:"text",
+                    success:function(data){
+                        alert(data);
+                    }
+                });
+            });
+        })
+    </script>
 </head>
 <body>
+<!--整体内容开始-->
+<div class="login">
+    <div class="login-head">
+        <div class="login-head-content">
+            <div class="logo">
+                <img src="img/logo1.png" width="160px" height="80px"/>
+            </div>
+            <div class="title">
+                <p>精致的服务，给您如家般的温馨！</p>
+            </div>
+        </div>
+    </div>
+    <div class="login-body">
+        <div class="login-body-left">
+            <div id="slider">
+                <ul id="show">
+                    <li><img src="img/lunbo1.jpg" ></li>
+                    <li><img src="img/lunbo2.jpg" ></li>
+                    <li><img src="img/lunbo3.jpg" ></li>
+                    <li><img src="img/lunbo4.jpg" ></li>
+                    <li><img src="img/lunbo5.jpg" ></li>
+                </ul>
+                <ul id="number">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+        </div>
+        <div class="login-body-right">
+            <div class="main">
+                <div class="header">
+                    <span>致家民宿预订</span><span><a href="#">后台入口</a></span>
+                </div>
+                <div class="body">
+                    <div class="nav-tab">
+                        <div class="nav-slider">
+                            <a href="#signup" class="active">注册</a><!--
+					          --><a href="#signin">登录</a>
+                            <span
+                                    class="nav-slider-bar"></span>
+                        </div>
+                    </div>
+                    <div class="signup">
+                        <div class="group-inputs">
+                            <input  type="text" id="nickname"  placeholder="姓名">
+                            <input type="text" id="account" placeholder="手机号">
+                            <input type="text" id="password" placeholder="密码（不少于 6 位）">
+                        </div>
+                        <button type="button" id="send">注册致家</button>
+                    </div>
+                    <div class="signin" style="display: none;">
+                        <form action="userLogin.do" method="post">
+                            <div class="group-inputs">
+                                <input type="text"  name="account" placeholder="手机号或邮箱">
+                                <input type="password" name="password" placeholder="密码">
+                            </div>
+                            <button type="submit">登录</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="login-foot">
 
+    </div>
+
+</div>
+<script>
+    var navSlider = document.getElementsByClassName("nav-slider")[0];
+    var navSliderA = navSlider.getElementsByTagName("a");
+    var navSliderBar = navSlider.getElementsByClassName("nav-slider-bar")[0];
+    var signup = document.getElementsByClassName("signup")[0];
+    var signin = document.getElementsByClassName("signin")[0];
+
+    navSliderA[0].onclick = function () {
+        navSliderBar.style.left = "0";
+        this.className = "active";
+        navSliderA[1].className = "";
+        signup.style.display = "block";
+        signin.style.display = "none";
+    }
+    navSliderA[1].onclick = function () {
+        navSliderBar.style.left = "4em";
+        this.className = "active";
+        navSliderA[0].className = "";
+        signup.style.display = "none";
+        signin.style.display = "block";
+    }
+</script>
 </body>
 </html>

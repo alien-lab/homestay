@@ -1,0 +1,172 @@
+/*幻灯片*/
+* {
+    padding:0;
+    margin:0;
+}
+/*整体内容*/
+.login{ width: 100%; height: 844px;}
+/*第一部分内容*/
+.login-head{ width: 100%; height: 85px; background: #fff; border-bottom: 1px solid #e5e5e5;}
+.login-head .login-head-content{width: 1200px; margin: 0 auto; height: 85px;}
+.login-head-content .logo{ width: 150px; height: 50px; margin-top: 3px; float: left;}
+.login-head-content .title{ float: left; height: 40px; border-left: 1px solid #838383; margin-top: 22px; line-height: 40px; }
+.login-head-content .title p{font-family: "微软雅黑"; font-size: 18px; color: #666666; height: 40px; line-height: 40px; margin-left: 15px;}
+
+.main {
+    margin-left: 35px;
+    display: inline-block;
+    width: 300px;
+    color: #555;
+    margin-top: 10px;
+}
+.main .header{
+    border-bottom: 1px solid #e5e5e5;
+}
+.main .header a{
+    display: inline-block;
+    width: 4em;
+    line-height: 35px;
+    transition: .15s;
+    text-decoration: none;
+    opacity: .7;
+    color: #753160;
+    margin-left: 135px;
+}
+.main .nav-tab {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.main .nav-tab .nav-slider {
+    margin-left: 90px;
+    display: inline-block;
+    position: relative;
+}
+.main .nav-tab .nav-slider a.active {
+    opacity: 1;
+    color: #753160;
+}
+.main .nav-tab .nav-slider a {
+    display: inline-block;
+    width: 4em;
+    line-height: 35px;
+    transition: .15s;
+    text-decoration: none;
+    opacity: .7;
+    color: #555;
+}
+.main .nav-tab .nav-slider a:hover {
+    opacity: 1;
+}
+.nav-slider-bar {
+    position: absolute;
+    width: 2.4em;
+    height: 2px;
+    background-color: #753160;
+    transition: .15s ease-in;
+    left: 0;
+    bottom: 0;
+}
+.signup, .signin {
+    font-size: 14px;
+    text-align: left;
+}
+.group-inputs {
+    padding: 1px 0;
+    border: 1px solid #d5d5d5;
+    border-radius: 3px;
+}
+.group-inputs input {
+    font-family: inherit;
+    border: 0;
+    border-top: 1px solid #e8e8e8;
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 14px 11.2px;
+    outline: none;
+    font-size: 14px;
+}
+.group-inputs input:first-child {
+    border-top: none;
+    height: 47px;
+}
+.signup button, .signin button {
+    margin-top: 18px;
+    background-color: #753160;
+    border: none;
+    border-radius: 3px;
+    line-height: 41px;
+    color: #fff;
+    width: 100%;
+    font-size: 15px;
+    font-family: inherit;
+    cursor: pointer;
+}
+button:hover {
+    opacity: .6;
+}
+.login-body-right{
+    border: 1px solid #AFD0F1;
+    margin-left: 780px;
+    margin-right: 180px;
+    margin-top: 40px;
+    height: 400px;
+    background: #FFFFFF;
+}
+
+.login-body-left{
+    margin-left: 100px;
+}
+ul {
+    list-style-type:none;
+}
+#slider {
+    width:650px;
+    height:400px;
+    background:#fff;
+    overflow:hidden;
+    position:relative;
+    float: left;
+}
+#slider img {
+    display:block;
+    width:650px;
+    height:400px;
+}
+#slider ul#show {
+    width:3550px;
+    height:300px;
+    position:absolute;
+}
+#slider ul#show li {
+    float:left;
+    cursor:pointer;
+}
+#number {
+    position:absolute;
+    bottom:10px;
+    right:0px;
+    text-align:center;
+    color:#FFFFFF;
+}
+#number li {
+    float:left;
+    width:20px;
+    height:20px;
+    margin-right:3px;
+    background-color: #B1B1B1;
+}
+#number li.on {
+    color: #C74201;
+    line-height:20px;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    border:none;
+    background:#fff;
+    font-weight: bold;
+    cursor:pointer;
+}
+/*幻灯片*/
+
