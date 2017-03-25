@@ -37,7 +37,7 @@ public class UserController {
             user.setPassword(form.getString("password"));
             UserInfo userInfo = new UserInfo();
             userInfo.setAccount(form.getString("account"));
-            userInfo.setNickname(form.getString("nickname"));
+            userInfo.setNickname(form.getString("nickName"));
 
             User user_check = userService.findUser(form.getString("account"));
             UserInfo userInfo_check = userInfoService.findUserInfoByAccount(form.getString("account"));
